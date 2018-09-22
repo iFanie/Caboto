@@ -1,0 +1,75 @@
+buildscript {
+    ext{
+        Bintray = [
+                GROUP_ID : 'com.izikode.izilib',
+
+                REPO : 'izilib',
+                NAME : 'caboto',
+
+                DESCRIPTION : 'Annotation based Android navigation',
+
+                WEBSITE : 'https://github.com/iFanie/Caboto',
+                GIT     : 'https://github.com/iFanie/Caboto.git',
+
+                DEV_ID    : 'iFanie',
+                DEV_NAME  : 'Fanie Veizis',
+                DEV_EMAIL : 'fanieveizis@gmail.com',
+
+                LICENCE     : 'The Apache Software License, Version 2.0',
+                LICENCE_URL : 'http://www.apache.org/licenses/LICENSE-2.0.txt',
+                LICENCES    : [ "Apache-2.0" ]
+        ]
+
+        Version = [
+                Build : [
+                        CODE    : 1,
+
+                        MAJOR   : 0,
+                        MINOR   : 1,
+
+                        getNAME : {
+                            return "${ Version.Build.MAJOR }.${ Version.Build.MINOR }"
+                        }
+                ],
+
+                Core : [
+                        GRADLE : '3.1.4',
+                        JAVA   : '1.8',
+                        KOTLIN : '1.2.70'
+                ],
+
+                Sdk : [
+                        BASE : 28,
+                        MIN  : 14
+                ],
+
+                Dependency : [
+                        KCOMPILER : '0.4',
+                        SUPPORT   : '28.0.0-rc02'
+                ]
+        ]
+    }
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:${ Version.Core.GRADLE }"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${ Version.Core.KOTLIN }"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
