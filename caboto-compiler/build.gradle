@@ -4,6 +4,31 @@ apply plugin: 'kotlin'
 sourceCompatibility = Version.Core.JAVA
 targetCompatibility = Version.Core.JAVA
 
+ext {
+    bintrayRepo = Bintray.REPO
+    bintrayName = "${ Bintray.NAME }-compiler"
+
+    publishedGroupId = Bintray.GROUP_ID
+    libraryName = Bintray.REPO
+    artifact = "${ Bintray.NAME }-compiler"
+
+    libraryDescription = Bintray.DESCRIPTION
+
+    siteUrl = Bintray.WEBSITE
+    gitUrl = Bintray.GIT
+
+    libraryBuild = Version.Build.CODE
+    libraryVersion = Version.Build.getNAME()
+
+    developerId = Bintray.DEV_ID
+    developerName = Bintray.DEV_NAME
+    developerEmail = Bintray.DEV_EMAIL
+
+    licenseName = Bintray.LICENCE
+    licenseUrl = Bintray.LICENCE_NAME
+    allLicenses = Bintray.LICENCES
+}
+
 buildscript {
     repositories {
         mavenCentral()
@@ -30,3 +55,6 @@ dependencies {
     implementation "com.izikode.izilib:base-kotlin-compiler:${ Version.Dependency.KCOMPILER }"
     implementation project(':caboto-components')
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
