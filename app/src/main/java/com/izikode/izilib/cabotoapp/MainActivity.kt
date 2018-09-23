@@ -1,4 +1,4 @@
-package com.izikode.izilib.caboto.app
+package com.izikode.izilib.cabotoapp
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -26,13 +26,7 @@ class MainActivity : AppCompatActivity() {
         toButtonButton.setOnClickListener {
             counter++
             Caboto.NAVIGATOR.widget.button.prepare(title, "Click Me!", counter).setSail(this)
-            Caboto.NAVIGATOR
-                    .initial.main                       /* Course */
-                    .prepare(title = "Caboto rocks")    /* Initialization variables */
-                    .setSail(this)                      /* Go */
         }
-
-
     }
 
 }

@@ -1,4 +1,4 @@
-package com.izikode.izilib.caboto.app
+package com.izikode.izilib.cabotoapp
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
